@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags%}
+
+{% block body_class %}template-blogpage{% endblock %}
+
+{% block content %}
+    <h4>{{page.title}}</h4>
+    <div class='card-panel flow-text center'>
+        {% for block in page.body %}
+          <h6>{{ block.value.name }}</h6>
+          {% image block.value.demo width-400 %}
+        {% endfor %}
+    </div>
+{% endblock %}
